@@ -1,0 +1,711 @@
+*******************************************************
+*       stored procedures  delete from tables         *
+*******************************************************
+/*Alter proc Delete_from_Kid_table @kid_id int
+As
+begin try
+DELETE FROM dbo.Kid
+Where Kid_id=@kid_id
+end try
+begin catch
+SELECT ' Oops!Kid_id you Enterd Is Not Existed 
+        OR defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/*Alter proc Delete_from_Instructor_table @ins_id int
+As
+Begin try
+DELETE From dbo.Instructor
+Where ins_id=@ins_id
+end try
+begin catch
+SELECT ' Oops!Ins_id you Enterd Is Not Existed
+         OR is defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/*Alter Proc Delete_From_Deparment_table @dept_id int
+AS
+Begin try
+DELETE From dbo.Department
+Where dept_id=@dept_id
+end try
+begin catch
+SELECT ' Oops!,Dept_id you Enterd Is Not Existed
+         OR defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end Catch
+*/
+
+/*Alter proc Delete_From_Topic_table @top_id int 
+As
+Begin try 
+Delete From dbo.Topic
+where top_id=@top_id
+End Try
+begin catch
+SELECT ' Oops!,Top_id you Enterd Is Not Existed 
+          OR defiend in another table as forigen key 
+		  you must delete it from this table then back here to delete it.'
+end Catch
+*/
+/*Alter proc Delete_from_Course_table @crs_id int
+As
+Begin try 
+Delete From dbo.Course
+where crs_id=@crs_id
+end try 
+begin catch
+SELECT ' Oops!,crs_id you Enterd Is Not Existed
+          OR defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/* 
+Alter proc Delete_from_Ins_course_table @crs_id int ,@ins_id int
+As
+begin try
+Delete from dbo.Ins_course
+where crs_id=@crs_id and ins_evaluation=@ins_id
+end try
+begin catch
+SELECT ' Oops!,crs_id and ins_id you Enterd Is Not Existed
+         OR defiend in another table as forigen keys 
+		 you must delete them from this tables then back here to delete them.'
+end catch 
+*/
+/*Create proc Delet_from_Exam_table  @exam_id int 
+As
+begin try
+Delete from Exam.Exam
+where exam_id=@exam_id
+end try
+begin catch
+Select ' Oops!,exam_id you Enterd Is Not Existed  OR
+          defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch*/
+/*Create proc Delet_from_Exam_Kid_Answer_table  @exam_id int ,@Kid_id int 
+As
+begin try
+Delete from Exam.Exam_Kid_Answer
+where exam_id=@exam_id and kid_id=@Kid_id
+end try
+begin catch
+Select ' Oops!,exam_id and kid_id you Enterd Is Not Existed  OR
+          defiend in another tables as forigen keys 
+		 you must delete them from this tables then back here to delete it.'
+end catch
+*/
+/*Create proc Delet_from_Model_Choice_table  @ques_id int 
+As
+begin try
+Delete from Exam.Model_Choice
+where ques_id=@ques_id
+end try
+begin catch
+Select ' Oops!,ques_id you Enterd Is Not Existed  OR
+          defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/*Create proc Delet_Model_choice_IQ_table  @ques_id int 
+As
+begin try
+Delete from Exam.Model_Choice_IQ
+where ques_id=@ques_id
+end try
+begin catch
+Select ' Oops!,ques_id you Enterd Is Not Existed  OR
+          defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/*Create proc Delet_Question_table  @ques_id int 
+As
+begin try
+Delete from Exam.Question
+where ques_id=@ques_id
+end try
+begin catch
+Select ' Oops!,ques_id you Enterd Is Not Existed  OR
+          defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/*Create proc Delet_Question_IQ_table  @ques_id int 
+As
+begin try
+Delete from Exam.Question_IQ
+where ques_id=@ques_id
+end try
+begin catch
+Select ' Oops!,ques_id you Enterd Is Not Existed  OR
+          defiend in another table as forigen key 
+		 you must delete it from this table then back here to delete it.'
+end catch
+*/
+/*Create proc Delet_from_login_ins_table  @ins_id int ,@ins_email nvarchar(150)
+As
+begin try
+Delete from Login.Login_ins
+where ins_id=@ins_id and ins_email=@ins_email
+end try
+begin catch
+Select ' Oops!,ins_id and ins_email you Enterd Is Not Existed '
+end catch*/
+/*Create proc Delet_from_login_kid_table  @kid_id int ,@kid_email nvarchar(150)
+As
+begin try
+Delete from Login.Login_kid
+where kid_id=@kid_id and kid_email=@kid_email
+end try
+begin catch
+Select ' Oops!,ins_id and ins_email you Enterd Is Not Existed '
+end catch
+*/
+***********************************************************************************************
+*******************************************************
+*       stored procedures  Select from tables         *
+*******************************************************
+/*Create proc SELECT_from_Kid_table @kis_id int
+As
+Begin try
+Select * from dbo.kid
+where kid_id=@kis_id
+end try
+begin catch
+Select 'Oops!!,Kid_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Department_table @dept_id int
+As
+begin try
+Select * From dbo.Department 
+Where dept_id=@dept_id
+end try
+begin catch
+Select 'Oops!!,dept_id you enterd is not existed'
+end catch 
+*/
+/*Create proc Select_from_Instructor_table @ins_id int
+As
+begin try
+Select *From dbo.Instructor 
+Where ins_id=@ins_id
+end try
+begin catch
+Select 'Oops!!,ins_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Course_table @crs_id int
+as
+begin try
+Select * from dbo.Course
+where crs_id=@crs_id
+end try
+begin catch
+Select 'Oops!!,crs_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_ins_course_table @ins_id int ,@crs_id int
+as
+begin try
+Select * from dbo.Ins_course
+where ins_id=@ins_id and crs_id=@crs_id
+end try
+begin catch
+Select 'Oops!!,ins_id or crs_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Topic_table @top_id int
+as
+begin try
+Select * From dbo.Topic 
+where top_id=@top_id
+end try 
+begin catch
+Select 'Oops!!,top_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Exam_table @exam_id int
+as
+begin try
+Select * From Exam.Exam 
+where exam_id=@exam_id
+end try 
+begin catch
+Select 'Oops!!,exam_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Exam_kid_answer_table @exam_id int,@kid_id int
+as
+begin try
+Select * From exam.Exam_Kid_Answer 
+where kid_id=@kid_id and exam_id= @exam_id
+end try 
+begin catch
+Select 'Oops!!,kid_id and exam_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_model_choice_table @ques_id int
+as
+begin try
+Select * From exam.Model_Choice 
+where ques_id=@ques_id
+end try 
+begin catch
+Select 'Oops!!,ques_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Model_choice_IQ_table @ques_id int
+as
+begin try
+Select * From Exam.Model_Choice_IQ 
+where ques_id=@ques_id
+end try 
+begin catch
+Select 'Oops!!,ques_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Question_table @ques_id int
+as
+begin try
+Select * From Exam.Question 
+where ques_id=@ques_id
+end try 
+begin catch
+Select 'Oops!!,ques_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Question_IQ_table @ques_id int
+as
+begin try
+Select * From Exam.Question_IQ
+where ques_id=@ques_id
+end try 
+begin catch
+Select 'Oops!!,ques_id you enterd is not existed'
+end catch
+*/
+/*Create proc Select_from_Login_instructor_table @ins_id int , @ins_email varchar(150)
+as
+begin try
+Select * From login.Login_ins
+where ins_id=@ins_id and ins_email=@ins_email
+end try 
+begin catch
+Select 'Oops!!,ins_id and ins_email you enterd is not existed'
+end catch*/
+/*Create proc Select_from_Login_kid_table @kid_id int , @kid_email varchar(150)
+as
+begin try
+Select * From login.Login_kid
+where kid_id=@kid_id and kid_email=@kid_email
+end try 
+begin catch
+Select 'Oops!!,kid_id and kid_email you enterd is not existed'
+end catch
+*/
+********************************************************************************
+*******************************************************
+*       stored procedures  Update to tables         *
+*******************************************************
+/*Create proc update_on_kid_table 
+@kid_id int,
+@kid_fname nvarchar(25),
+@kid_lname nvarchar(25),
+@kid_address nvarchar(50),
+@kid_gender char(10),
+@kid_level nvarchar(25),
+@kid_phone int ,
+@kid_age int ,
+@dept_id int
+as
+begin try 
+   update  dbo.Kid set kid_fname =@kid_fname, kid_address=@kid_address,
+   kid_age = @kid_age , kid_lname=@kid_lname , kid_gender= @kid_gender, kid_level=@kid_level ,
+   kid_phone=@kid_phone,dept_id=@dept_id
+    where kid_id = @kid_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed '
+end catch
+*/
+/*Create proc update_on_instructor_table 
+@ins_id int,
+@ins_fname nvarchar(25),
+@ins_lname nvarchar(25),
+@ins_salary money,
+@ins_degree nvarchar(25) ,
+@ins_address nvarchar(50),
+@dept_id int 
+as 
+begin try
+ update  dbo.Instructor set ins_fname =@ins_fname, ins_lname=@ins_lname,
+ ins_salary= @ins_salary,ins_degree=@ins_degree,ins_address =@ins_address,dept_id=@dept_id
+ where  ins_id = @ins_id
+end try
+begin catch
+select ' Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+
+/*Create proc update_department_table
+@dept_id int,
+@dept_desc nvarchar(25) ,
+@dept_manger nvarchar(25),
+@dept_name nvarchar(25)
+as 
+begin try
+update dbo.Department set dept_desc =@dept_desc,dept_manger=@dept_manger,
+dept_name=@dept_name 
+where dept_id = @dept_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+/*Create proc update_topic_table 
+@top_id int,
+@top_name nvarchar(25)
+as 
+begin try
+update dbo.Topic set top_name=@top_name
+where top_id = @top_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+/*Create proc update_exam_table
+@exam_id int ,
+@exam_date date ,
+@exam_model int ,
+@ins_id int ,
+@crs_id int 
+as 
+begin try
+update Exam.Exam set exam_date = @exam_date, exam_model=@exam_model,
+                   ins_id=@ins_id ,crs_id=@crs_id
+where exam_id = @exam_id 
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+
+
+/*Create  proc  update_course_table
+@crs_id int ,
+@crs_duration nvarchar(15) ,
+@crs_name nvarchar(25),
+@crs_material  nvarchar(100),
+@top_id int 
+as 
+begin try
+update dbo.Course set crs_duration = @crs_duration , crs_name= @crs_name ,
+crs_material=@crs_material ,top_id=@top_id
+where crs_id = @crs_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+
+/*Create proc update_ins_course_tqble 
+@crs_id int , 
+@ins_id int,
+@ins_evaluation nvarchar(25)
+as 
+begin try
+update dbo.Ins_course set ins_evaluation =ins_evaluation 
+where crs_id= @crs_id and ins_id = @ins_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+
+/*Create proc updateexam_kid_answer
+@kid_id int,
+@exam_id int,
+@grade int  , 
+@kid_answer nvarchar(50),
+@ques_id int ,
+@date date
+as 
+begin try
+update Exam.Exam_Kid_Answer set grade=@grade, date= @date ,
+kid_answer =@kid_answer, ques_id=@ques_id
+where kid_id= @kid_id and exam_id= @exam_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+/*Create proc update_login_ins
+@ins_id int,
+@email nvarchar(150),
+@password nvarchar(25)
+as 
+begin try
+update Login.Login_ins set ins_email=@email,ins_password=@password
+where ins_id= @ins_id 
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+
+/*Create proc update_login_kid_update
+@kid_id int,
+@email nvarchar(150) ,
+@password nvarchar(25)
+as 
+begin try
+update Login.Login_kid set kid_email=@email, kid_password=@password
+where kid_id = @kid_id 
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch*/
+
+/*Create proc update_model_choice_update
+@ques_id int ,
+@ques_choice nvarchar(50),
+@ques_model_answer nvarchar(50)
+as 
+begin try
+update Exam.Model_Choice set  ques_choice=@ques_choice, ques_model_answer=@ques_model_answer
+where ques_id = @ques_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch 
+*/
+
+/*Create proc update_model_choice_iq
+@ques_id int,
+@ques_choice nvarchar(50),
+@ques_model_answer nvarchar(50)
+as 
+begin try
+update Exam.Model_Choice_IQ set ques_choice=@ques_choice, ques_model_answer=@ques_model_answer
+where  ques_id= @ques_id
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch 
+*/
+
+/*Create proc update_question_table 
+@ques_id int ,
+@ques_head nvarchar(max),
+@ques_type nvarchar(10),
+@ques_answer  nvarchar(50),
+@exam_id int
+as 
+begin try
+update Exam.Question set ques_answer=@ques_answer, ques_head=@ques_head ,
+ques_type=@ques_type
+where ques_id = @ques_id 
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch
+*/
+
+/*Create proc update_question_iq_table
+@ques_id int ,
+@ques_head nvarchar(max),
+@ques_type nvarchar(10),
+@ques_answer  nvarchar(50),
+@exam_id int
+as 
+begin try
+update Exam.Question_IQ set ques_answer=@ques_answer, ques_head=@ques_head ,
+ques_type=@ques_type
+where ques_id = @ques_id 
+end try
+begin catch
+select 'Oops!,values you Enterd Is Not Existed'
+end catch 
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

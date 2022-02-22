@@ -1,0 +1,308 @@
+python 
+-----------------1)mcq
+1. Who developed Python Programming Language?
+a) Wick van Rossum
+b) Rasmus Lerdorf
+c) Guido van Rossum  (answer)
+d) Niene Stom
+---
+2. Which type of Programming does Python support?
+a) object-oriented programming
+b) structured programming
+c) functional programming
+d) all of the mentioned  (answer)
+-----
+3. Is Python case sensitive when dealing with identifiers?
+a) no  (answer)
+b) yes
+c) machine dependent
+d) none of the mentioned
+------
+4. Which of the following is the correct extension of the Python file?
+a) .python
+b) .pl
+c) .py   (answer)
+d) .p
+--------------
+5. Is Python code compiled or interpreted?
+a) Python code is both compiled and interpreted
+b) Python code is neither compiled nor interpreted  (answer)
+c) Python code is only compiled
+d) Python code is only interpreted
+-----------------------
+6. All keywords in Python are in _________
+a) Capitalized
+b) lower case
+c) UPPER CASE
+d) None of the mentioned   (answer)
+------
+7. What will be the value of the following Python expression?
+------------>>> 4 + 3 % 5
+a) 7  (answer)
+b) 2
+c) 4
+d) 1
+----------
+8. Which of the following is used to define a block of code in Python language?
+a) Indentation (answer)
+b) Key
+c) Brackets
+d) All of the mentioned
+---------------
+9. Which keyword is used for function in Python language?
+a) Function
+b) Def  (answer)
+c) Fun
+d) Define
+------------
+10. Which of the following character is used to give single-line comments in Python?
+a) //
+b) #
+c) !    (answer)
+d) /*
+---------------------
+11. Which of the following functions can help us to find the version of python that we are currently working on?
+a) sys.version(1)     (answer)
+b) sys.version(0)
+c) sys.version()
+d) sys.version
+--------------------
+12. Python supports the creation of anonymous functions at runtime, using a construct called __________
+a) pi
+b) anonymous
+c) lambda  (answer)
+d) none of the mentioned
+-------------
+13. What is the order of precedence in python?
+a) Exponential, Parentheses, Multiplication, Division, Addition, Subtraction
+b) Exponential, Parentheses, Division, Multiplication, Addition, Subtraction
+c) Parentheses, Exponential, Multiplication, Division, Subtraction, Addition
+d) Parentheses, Exponential, Multiplication, Division, Addition, Subtraction (answer)
+----------------------
+14. What does pip stand for python?
+a) unlimited length
+b) all private members must have leading and trailing underscores
+c) Preferred Installer Program   (answer)
+d) none of the mentioned
+-----------------
+15. Which of the following is true for variable names in Python?
+a) underscore and ampersand are the only two special characters allowed
+b) unlimited length  (answer)
+c) all private members must have leading and trailing underscores
+d) none of the mentioned
+--------------------
+16. Which of the following is the truncation division operator in Python?
+a) |
+b) //  (answer)
+c) /
+d) %
+----------------------
+17. Which of the following functions is a built-in function in python?
+a) factorial()
+b) print()  (answer)
+c) seed()
+d) sqrt()
+-------------------
+18. Which of the following is the use of id() function in python?
+a) Every object doesn’t have a unique id
+b) Id returns the identity of the object  (answer)
+c) All of the mentioned
+d) None of the mentioned
+----------------------
+19. Which of the following is not a core data type in Python programming?
+a) Tuples
+b) Lists
+c) Class  (answer)
+d) Dictionary
+----------------
+20. What will be the output of the following Python expression if x=56.236?
+------------>print("%.2f"%x)
+a) 56.236
+b) 56.23
+c) 56.0000
+d) 56.24 (answer)
+-----------
+21. Which of these is the definition for packages in Python?
+a) A set of main modules
+b) A folder of python modules  (answer)
+c) A number of files containing Python definitions and statements
+d) A set of programs making use of Python modules
+-------------
+22. What will be the output of the following Python function?
+-------------> len(["hello",2, 4, 6])
+a) Error
+b) 6
+c) 4  (answer)
+d) 3
+----------------------------
+23. What is the order of namespaces in which Python looks for an identifier?
+a) Python first searches the built-in namespace, then the global namespace and finally the local namespace
+b) Python first searches the built-in namespace, then the local namespace and finally the global namespace
+c) Python first searches the local namespace, then the global namespace and finally the built-in namespace  (answer)
+d) Python first searches the global namespace, then the local namespace and finally the built-in namespace
+--------------------
+24. Which one of the following is not a keyword in Python language?
+a) pass
+b) eval (answer)
+c) assert
+d) nonlocal
+------------------
+25. Which module in the python standard library parses options received from the command line?
+a) getarg
+b) getopt (answer)
+c) main
+d) os
+----------
+26. What arithmetic operators cannot be used with strings in Python?
+a) *
+b) –  (answer)
+c) +
+d) All of the mentioned
+---------------
+27. What will be the output of the following Python code?
+--------->print("abc. DEF".capitalize())
+a) Abc. def (answer)
+b) abc. def
+c) Abc. Def
+d) ABC. DEF
+----------------
+28. Which of the following statements is used to create an empty set in Python?
+a) ( )
+b) [ ]
+c) { }
+d) set() (answer)
+-----------------
+29. To add a new element to a list we use which Python command?
+a) list1.addEnd(5)
+b) list1.addLast(5)
+c) list1.append(5) (answer)
+d) list1.add(5)
+--------------------
+30. What will be the output of the following Python code?
+------------->print('*', "abcde".center(6), '*', sep='')
+a) * abcde *
+b) *abcde *  (answer)
+c) * abcde*
+d) * abcde *
+------------------
+31. Which one of the following is the use of function in python?
+a) Functions don’t provide better modularity for your application
+b) you can’t also create your own functions
+c) Functions are reusable pieces of programs (answer)
+d) All of the mentioned
+-----------
+32. What is the maximum possible length of an identifier in Python?
+a) 79 characters
+b) 31 characters
+c) 63 characters
+d) none of the mentioned  (answer)
+----------------
+33. What are the two main types of functions in Python?
+a) System function
+b) Custom function
+c) Built-in function & User defined function (answer)
+d) User function
+----------------
+34. Which of the following is a Python tuple?
+a) {1, 2, 3}
+b) {}
+c) [1, 2, 3]
+d) (1, 2, 3) (answer)
+-------------
+35. Which of the following is a feature of Python DocString?
+a) In Python all functions should have a docstring
+b) Docstrings can be accessed by the __doc__ attribute on objects
+c) It provides a convenient way of associating documentation with Python modules, functions, classes, and methods
+d) All of the mentioned (answer)
+----------------
+36. What is output of print(math.pow(3, 2))?
+a) 9.0  (answer)
+b) None
+c) 9
+d) None of the mentioned
+--------------
+37. Which of the following is the use of id() function in python?
+a) Every object in Python doesn’t have a unique id
+b) In Python Id function returns the identity of the object  (answer)
+c) None of the mentioned
+d) All of the mentioned
+-------------
+38. The process of pickling in Python includes ____________
+a) conversion of a Python object hierarchy into byte stream  (answer)
+b) conversion of a datatable into a list
+c) conversion of a byte stream into Python object hierarchy
+d) conversion of a list into a datatable
+------------------
+
+39. Which of the following formatting options can be used in order to add ‘n’ blank spaces after a given string ‘S’?
+a) print(“-ns”%S)
+b) print(“-ns”%S)
+c) print(“%ns”%S)
+d) print(“%-ns”%S)   (answer)
+-----------
+40. What will be the output of the following Python expression if X = -122? print("-%06d"%x)
+a) -000122
+b) 000122
+c) –00122  (answer)
+d) -00122
+-------------
+41. What will be the output of the following Python expression if the value of x is 34? print(“%f”%x)
+a) 34.00
+b) 34.0000
+c) 34.000000  (answer)
+d) 34.00000000
+-------------------
+42. What will be the output of the following Python expression if x=56.236?  print("%.2f"%x)
+a) 56.00
+b) 56.24  (answer)
+c) 56.23
+d) 0056.236
+-----------------
+43. What will be the output of the following Python expression if x=22.19?  print("%5.2f"%x)
+a) 22.1900
+b) 22.00000
+c) 22.19   (answer)
+d) 22.20
+-------------
+44. What will be the output of the following Python expression if x=456? print("%-06d"%x)
+a) 000456
+b) 456000
+c) 456  (answer)
+d) error
+---------------
+45. What will be the output of the following Python expression if X=345? print(“%06d”%X)
+a) 345000
+b) 000345  (answer)
+c) 000000345
+d) 345000000
+------------------
+46. Which of the following functions is a built-in function in python?
+a) seed()
+b) sqrt()
+c) factorial()
+d) print() (answer)
+-----------------
+47. What will be the output of the following Python expression?  round(4.576)
+a) 4.5
+b) 5  (answer)
+c) 4
+d) 4.6
+------------------
+48. The function pow(x,y,z) is evaluated as:
+a) (x**y)**z
+b) (x**y) / z
+c) (x**y) % z (answer)
+d) (x**y)*z
+-----------------
+49. What will be the output of the following Python function? all([2,4,0,6])
+a) Error
+b) True
+c) False  (answer)
+d) 0
+------------------
+50. What will be the output of the following Python expression?  round(4.5676,2)?
+a) 4.5
+b) 4.6
+c) 4.57 (answer)
+d) 4.56
+

@@ -1,0 +1,142 @@
+--Create DataBase KidsCodingSchool
+/*Create table Department(
+dept_id int primary key,
+dept_name   nvarchar(25),
+dept_desc   nvarchar(25),
+dept_manger nvarchar(25)
+)
+*/
+/*Create table Instructor(
+ins_id int primary key,
+ins_fname nvarchar(25),
+ins_lname nvarchar(25),
+ins_degree nvarchar(25),
+ins_salary money ,
+ins_address nvarchar(50),
+dept_id int 
+)
+Alter Table Instructor
+Add constraint deptFk FOREIGN KEY (dept_id) REFERENCES Department(dept_id)
+*/
+/*Create table Kid(
+kid_id int primary key ,
+kid_fname nvarchar(25),
+kid_lname nvarchar(25),
+kid_age int,
+kid_gender char(10),
+kid_address nvarchar(50),
+kid_phone int ,
+kid_level nvarchar(25),
+dept_id int 
+
+)
+Alter Table Kid
+Add constraint dept_KidFk FOREIGN KEY (dept_id) REFERENCES Department(dept_id)
+*/
+/*Create Table Course(
+crs_id    int primary key ,
+crs_name  nvarchar(25),
+crs_duration nvarchar(15),
+crs_material nvarchar(100),
+top_id int 
+
+)
+Create Table Topic(
+top_id int  primary key ,
+top_name nvarchar(25)
+
+)
+Alter Table Course
+Add constraint crs_topFk FOREIGN KEY (top_id) REFERENCES Topic(top_id)
+*/
+/*Create Table Ins_course(
+crs_id int  ,
+ins_id int,
+ins_evaluation nvarchar(25)
+)
+
+Alter Table Ins_course
+Add constraint ins_crs_crsfk foreign KEY (crs_id) REFERENCES Course(crs_id)
+Alter Table Ins_course
+Add constraint ins_crs_insfk foreign KEY (ins_id) REFERENCES Instructor(ins_id)
+*/
+
+/*Create table Exam(
+exam_id int primary key,
+exam_model int,
+exam_date date,
+ins_id int,
+crs_id int ,
+)
+
+Alter Table Exam
+Add constraint Exam_insfk foreign KEY (ins_id) REFERENCES Instructor(ins_id)
+
+Alter Table Exam
+Add constraint Exam_crsfk foreign KEY (crs_id) REFERENCES Course(crs_id)
+*/
+
+/*Create table Question(
+ques_id int primary key,
+ques_head  nvarchar(max),
+ques_answer nvarchar(50),
+ques_type  nvarchar(10),
+exam_id int 
+
+)
+
+Alter Table Question
+Add constraint Question_examfk foreign KEY (exam_id) REFERENCES Exam(exam_id)
+
+*/
+
+/*Create table Question_IQ(
+ques_id int primary key,
+ques_head nvarchar(max),
+ques_answer nvarchar(50),
+ques_type nvarchar(10),
+exam_id int
+)
+Alter Table Question_IQ
+Add constraint Question_IQ_examfk foreign KEY (exam_id) REFERENCES Exam(exam_id)
+*/
+
+/*Create table Model_Choice(
+ques_id int ,
+ques_choice nvarchar(50),
+ques_model_answer nvarchar(50)
+)
+Alter Table Model_Choice
+Add constraint Model_Choice_questionfk foreign KEY (ques_id) REFERENCES Question(ques_id)
+*/
+/*
+Create table Model_Choice_IQ(
+ques_id int ,
+ques_choice nvarchar(50),
+ques_model_answer nvarchar(50)
+)
+
+
+Alter Table Model_Choice_IQ
+Add constraint Model_ChoiceIQ_questionIQfk foreign KEY (ques_id) REFERENCES Question_IQ(ques_id)
+
+
+*/
+**********************************************************************************************************************
+--Create schema Exam
+--Alter schema Exam transfer Exam
+--Alter schema Exam transfer Exam_Kid_Answer
+--Alter schema Exam transfer Question
+--Alter schema Exam transfer Model_Choice
+--Alter schema Exam transfer Question_IQ
+--Alter schema Exam transfer Model_Choice_IQ
+--Create Schema Login
+--Alter schema Login transfer login_ins
+-- Alter schema Login transfer login_Kid
+
+
+
+
+
+
+

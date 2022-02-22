@@ -1,0 +1,212 @@
+*******************************************************************************************************
+*******************************generate exam ***********************************************************
+ALTER procedure [dbo].[Generate_Exam] @kid_id int
+ as
+ 
+ --take crs_name to get crs_id to get questions for course
+ Declare @crs_id int
+ SELECT @crs_id=crs_id
+ from dbo.kid_course
+ where kid_id=@kid_id
+
+ --take crs_id to get ins_id
+ Declare @ins_id int 
+ SELECT @ins_id=ins_id
+ from dbo.Ins_course
+ where crs_id=@crs_id
+
+ --get Exam date 
+ Declare @exam_date Date
+ Select @exam_date=GETDate()
+ --give exam random number unique by calculated by  seconds from zero date 
+ Declare @exam_id int
+ Select @exam_id=DATEDIFF(Second,'1970-01-01',GETDATE())
+
+
+begin try --this begin to select Generated exam  
+         begin try--this sum begin to insert into Exam_questions table
+		         begin try --this sub begin to insert values in Exam table
+				      insert into Exam.Exam(exam_id,exam_date,ins_id,crs_id)
+					               values( @exam_id,@exam_date,@ins_id,@crs_id)
+				 end try
+				 begin catch
+				      SELECT 'Oops there is an error in insert to Exam table'
+				 end catch 
+            insert into Exam.Exam_Questions
+            SELECT Top(10) @exam_id,ques_id
+            from Exam.Question
+			where crs_id=@crs_id
+            order by NEWID()
+                         
+         end try 
+         begin catch
+             SELECT 'Oops! there is an error in insert to exam_Qurstions table '
+         end catch
+   SELECT EQ.exam_id ,EQ.Question_id ,Q.ques_head,Exam.Model_Choice.ques_choice 
+   From Exam.Exam_Questions as EQ
+   join Exam.Question as Q on Q.ques_id=EQ.Question_id
+   join Exam.Model_Choice on .Exam.Model_Choice.ques_id=Q.ques_id
+   where exam_id=@exam_id
+ end try
+ begin catch 
+   SELECT 'Oops ! there is an error in select generated exam'
+ end catch
+********************************************************************************************************
+*****************take Exam Answer and insert it into table Exam kid answer*******************************
+
+
+ALTER PROC [dbo].[insert_Exam_kid_Answer] @kid_ID INT, @exam_ID INT, @kid_Answers Table_Take_Answers READONLY
+AS
+begin try
+		if not exists (
+		               select kid_id from dbo.kid where kid_id=@kid_id 
+					   )
+			select'ERROR:enter correct kid_id'
+		else if exists (
+		                 select kid_id,Exam_id from Exam.Exam_Kid_Answer
+		                 where kid_id=@kid_ID and exam_id=@exam_ID
+		                 )
+			select 'Duplicated student with exam'
+
+		else
+			begin try
+				DECLARE ExamAnswerCursor CURSOR
+				FOR
+					SELECT Ques_ID, kid_Answer
+					FROM @kid_Answers 
+				for update
+
+			    DECLARE @Ques_ID INT, @kid_Answer VARCHAR(1)
+			    OPEN ExamAnswerCursor
+				FETCH from ExamAnswerCursor INTO @Ques_ID, @kid_Answer
+				 if exists  (
+				            select Distinct(exam_id) from Exam.Exam_Questions
+							where exam_id=@exam_ID
+							) 
+					 begin try
+	                 WHILE(@@FETCH_STATUS = 0)
+					       begin try
+							insert into Exam.Exam_Kid_Answer (exam_id,kid_id,Ques_ID,kid_answer,Point,date)
+									 values(@exam_ID,@kid_ID, @Ques_ID,@kid_Answer, NULL,GETDATE())	
+				            FETCH from ExamAnswerCursor INTO @Ques_ID, @kid_Answer
+					        end try
+							begin catch
+							  Select ERROR_MESSAGE()
+							end catch
+				    CLOSE ExamAnswerCursor
+					DEALLOCATE ExamAnswerCursor
+					end try
+					begin catch
+					   Select 'error while fetch'
+					end catch
+					
+				else
+					select 'Oops! enter correct data '
+			end try 
+			begin catch
+			select'error while declare cursor'
+			end catch 
+end try
+begin catch
+		select 'Oops!check your inputs'
+end catch
+***********************************************************************************************************************
+******************************************Correct_Exam****************************************************************
+ALTER PROC [dbo].[Correct_Exam] @kid_ID INT, @Exam_ID INT
+AS
+begin try
+	-- Fetching the values of the kid's answer and the model answer into @QuesAnsTable table
+	DECLARE @QuesAnsTable TABLE
+	(Ques_ID INT, KId_Answer VARCHAR(1), ques_answer VARCHAR(1))
+	begin try
+	INSERT INTO @QuesAnsTable
+	SELECT A.ques_ID as ques_id, A.kid_answer as kid_answer , Q.ques_answer as ques_answer
+	FROM Exam.Exam_Kid_Answer A INNER JOIN Exam.Question Q
+	ON Q.ques_id = A.ques_id AND kid_id = @kid_ID AND exam_id = @Exam_ID
+	end try
+	begin catch
+	 SELECT ERROR_MESSAGE()
+	end catch
+
+	-- Comparing between the kid's answer and model answer
+	begin try
+	     DECLARE CurrentCursor CURSOR
+	     FOR
+		 SELECT ques_id, kid_answer, ques_answer
+		 FROM @QuesAnsTable
+	     DECLARE @Ques_ID INT, @Kid_Answer VARCHAR(1), @ques_answer VARCHAR(1)
+	     OPEN CurrentCursor
+	     FETCH CurrentCursor INTO @Ques_ID, @kid_Answer, @ques_answer
+	     WHILE(@@FETCH_STATUS = 0)
+		   BEGIN try
+			  IF(@Kid_Answer = @ques_answer)
+				BEGIN try
+					UPDATE Exam.Exam_Kid_Answer
+					SET Point = 1
+					WHERE kid_ID = @kid_ID AND Exam_id = @Exam_id 
+					      AND ques_id = @Ques_ID
+				END try
+				begin catch
+				 Select ERROR_MESSAGE()
+				end catch
+			ELSE
+				begin try
+					UPDATE Exam.Exam_Kid_Answer
+					SET Point = 0
+					WHERE kid_ID = @kid_ID AND Exam_id = @Exam_id 
+					      AND ques_id = @Ques_ID
+				END try
+				begin catch
+				 Select ERROR_MESSAGE()
+				end catch
+			FETCH CurrentCursor INTO @Ques_ID, @kid_Answer, @ques_answer
+		END try
+		begin catch
+		 Select ERROR_MESSAGE()
+		end catch
+	CLOSE CurrentCursor
+	DEALLOCATE CurrentCursor
+	end try
+	begin catch
+	 select ERROR_MESSAGE()
+	end catch
+
+		-- Fetching the sum of points
+	begin try
+	DECLARE @SumOfPoints INT
+	SELECT @SumOfPoints = ( SELECT SUM(Point)
+	                       FROM Exam.Exam_Kid_Answer
+	                       WHERE kid_ID = @kid_ID AND Exam_id = @exam_id
+						   )
+	end try 
+	begin catch
+	 Select ERROR_MESSAGE()
+	end catch
+	--- get cr_id
+	begin try
+	DECLARE @crs_id int 
+	SELECT @crs_id= (SELECT Distinct(crs_id)
+	                  from Exam.Exam_Kid_Answer A ,exam.Question Q
+					  where Q.ques_id=A.ques_id
+					  and A.exam_id=@Exam_ID
+					  and A.kid_id=@kid_ID
+					  )
+	end try
+	begin catch
+	 select ERROR_MESSAGE()
+	end catch
+
+
+	-- Updating the kid_Course table with the new grade
+	begin try
+	UPDATE dbo.kid_course
+	SET Grade = @SumOfPoints	
+	WHERE kid_id = @kid_ID AND crs_id = @crs_id 
+	end try
+	begin catch
+	 Select ERROR_MESSAGE()
+	end catch
+end try
+begin catch
+select 'Oops! there is an error '
+end catch

@@ -1,0 +1,134 @@
+Q.	
+Which data manipulation command is used to combines the records from one or more tables?
+A.SELECTB.PROJECT
+B.PROJECT
+C.JOIND.PRODUCT
+D.PRODUCT
+Answer : JOIN [Option : C]
+--------
+	
+Which of the following is not a valid SQL type?
+A.DECIMAL
+B.NUMERIC NUMERIC
+C.FLOATD.CHARACTER
+D.CHARACTER
+DECIMAL [Option : A]
+-------
+Which operator is used to compare a value to a specified list of values?
+
+A .BETWEENB.ANY
+B.ANY
+C.IND.ALL
+D.ALL
+Answer : IN [Option : C]
+------------
+The SQL used by front-end application programs to request data from the DBMS is called _______
+A.DMLB.DDL
+B.DDL
+C.VDLD.SDL
+D.SDL
+DML [Option : A]
+-------------
+The command used to delete a particular column in a relation is ____________
+A.UPDATE TABLEB.TRUNCATE COLUMN
+B.TRUNCATE COLUMN
+C.ALTER , DROPD.DELETE COLUMN
+D.DELETE COLUMN
+Answer : ALTER , DROP [Option : C]
+--------------
+Which of the following operations requires the relations to be union compatible?
+A.UNIONB.INTERSECTION
+B.INTERSECTION
+C.DIFFERENCED.ALL OF THESE
+D.ALL OF THESE
+Answer : ALL OF THESE [Option : D]
+---------------------------------------------
+The database language that allows us to access data in a database is called :
+A.DCLB.DML
+B.DML
+C.DDLD.None Of Above
+D.None Of Above
+Answer : DCL [Option : A]
+-----------------------
+	
+Which of the following is a comparison operator in SQL?
+A.Double equal sign ( == )B.LIKE
+B.LIKE
+C.BETWEEND.Single equal sign ( = )
+D.Single equal sign ( = )
+Answer : Double equal sign ( == ) [Option : A]
+--------------------------
+Which of the following is a legal expression in SQL?
+A.SELECT NULL FROM SALES;B.SELECT NAME FROM SALES;
+B.SELECT NAME FROM SALES;
+C.SELECT * FROM SALES WHEN PRICE = NULL;D.SELECT # FROM SALES;
+D.SELECT # FROM SALES;
+Answer : SELECT NAME FROM SALES; [Option : B]
+------------------------
+DCL provides commands to performactionslike
+A.Change thestructureof TablesB.Insert, Update or Delete Records and Values
+B.Insert, Update or Delete Records and Values
+C.Authorizing Access and othercontrolover DatabaseD.None of Above
+D.None of Above
+Answer : Authorizing Access and othercontrolover Database [Option : C]
+--------------------------------------------------------------
+	
+The COUNT function in SQL returns the number of ______________
+A.ValuesB.Distinct values
+B.Distinct values
+C.Group ByD.Columns
+D.Columns
+Answer : Values [Option : A]
+-------------------------------------------------------------
+Which data type can store unstructured data in a column?
+A.RAWB.CHAR
+B.CHAR
+C.NUMERICD.VARCHAR
+D.VARCHAR
+Answer : RAW [Option : A]
+-----------------------------------------------------
+A SQL query will not work if there are no indexes on the relations - Is it true ?
+A.NO
+B.YES
+Answer : NO [Option : A]
+----------------------------
+	
+Which function is used to divides one numeric expression by another and get the remainder ?
+A.POWERB.MOD
+B.MOD
+C.ROUNDD.REMAINDER
+D.REMAINDER
+Answer : MOD [Option : B]
+---------------------------------
+	
+What is the full form of DDL ?
+A.Dynamic Data LanguageB.Detailed Data Language
+B.Detailed Data Language
+C.Data Definition LanguageD.Data Derivation Language
+D.Data Derivation Language
+Answer : Data Definition Language [Option : C]
+-------------------------------------
+A database language used for defining the whole databasestructureand schema is called :
+A.DCLB.DML
+B.DML
+C.DDLD.All Of Above
+D.All Of Above
+Answer : DDL [Option : C]
+-------------------------------------
+The virtual table that its created by data from the result of an SQL 'Select' statement is called _________
+A.ViewB.Synonym
+B.Synonym
+C.SequenceD.Transaction
+D.Transaction
+Answer : View [Option : A]
+-----------------------
+Which statement in SQL allows us to change the definition of a table is?
+A.ALTERB.UPDATE
+B.UPDATE
+C.CREATED.SELECT
+D.SELECT
+Answer : ALTER [Option : A]
+-----------------------------
+
+
+

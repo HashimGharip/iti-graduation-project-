@@ -1,0 +1,5 @@
+my role in graduation project is :
+-create database from scratch for our system 
+- create insert, update ,insert and select procedures on all tables
+-procedures for  exams 
+-make analysis on this data using microsoft power bi tool
